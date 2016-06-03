@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/alexandre-garrec/data-parser/issues"
   },
-  "homepage": "https://github.com/alexandre-garrec/data-parser#readme"
+  "homepage": "https://github.com/alexandre-garrec/data-parser#readme",
+  "dependencies": {
+    "invariant": "^2.2.1"
+  }
 }

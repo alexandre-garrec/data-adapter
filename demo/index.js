@@ -7,9 +7,10 @@ const User = register((user) => ({
   _contain: 'comments:comment'
 }), 'user')
 
-const Comment = register((comment, post) => ({
+
+const Comment = register((comment, user) => ({
   id: comment.id,
-  postId: post.id,
+  userId: user.id,
   text: comment.content
 }), 'comment')
 

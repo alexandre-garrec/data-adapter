@@ -1,14 +1,19 @@
+import invariant from 'invariant'
+
 /**
  * Comments
  */
 
+// List
 let model = {}
 
+// Register model
 export const register = (func, name) => {
-  if (model[name]) console.log(`model ${name} is allready existe`)
-  else model[name] = func
+  invariant(!model[name], `model ${name} is allready existe`);
+  model[name] = func
 }
 
+// Data parser
 const parseData = (type, data , memo = {}, parent = false) => {
   if (model[type]) {
     
