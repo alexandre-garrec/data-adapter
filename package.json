@@ -1,0 +1,25 @@
+{
+  "name": "data-parser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/parser.js",
+  "scripts": {
+    "start": "$(npm bin)/babel-node demo/index.js --presets es2015 stage-0",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.0.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandre-garrec/data-parser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexandre-garrec/data-parser/issues"
+  },
+  "homepage": "https://github.com/alexandre-garrec/data-parser#readme"
+}
