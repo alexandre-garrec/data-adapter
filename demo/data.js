@@ -4,12 +4,12 @@ const data = [
     name: 'toto',
     comments : [
       {
-        id: 34,
+        id: 31,
         postId: 1,
         content : 'lorem ipsum elms'
       },
       {
-        id: 34,
+        id: 39,
         postId: 1,
         content : 'dare ipsum remu'
       },
@@ -25,7 +25,7 @@ const data = [
         content : 'lorem ipsum elms'
       },
       {
-        id: 34,
+        id: 32,
         postId: 15,
         content : 'dare ipsum remu'
       },

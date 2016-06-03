@@ -1,7 +1,7 @@
 import invariant from 'invariant'
 
 /**
- * Comments
+ * @todo: stroke option
  */
 
 // List
@@ -11,10 +11,11 @@ let model = {}
 export const register = (func, name) => {
   invariant(!model[name], `model ${name} is allready existe`);
   model[name] = func
+  return register
 }
 
-// Data parser
-const adapter = (type, data , memo = {}, parent = false) => {
+// Data parser 
+const adapter = (data, type, memo = {}, parent = false) => {
   if (model[type]) {
     
     let _contain = false
@@ -26,13 +27,13 @@ const adapter = (type, data , memo = {}, parent = false) => {
       return temp
     })
     
-    memo[type] = Array.isArray( memo[type])
-      ? memo[type] = memo[type].concat(items)
+    memo[`${type}s`] = Array.isArray( memo[type])
+      ? memo[`${type}s`] = memo[type].concat(items)
       : items
 
     if (_contain) {
       const [key, name] = _contain.split(':')
-      data.forEach(i => adapter(name, i[key] , memo, i))
+      data.forEach(i => adapter(i[key], name, memo, i))
     }
     else return memo
   }
