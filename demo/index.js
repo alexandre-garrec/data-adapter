@@ -1,5 +1,5 @@
 import data from './data'
-import Parser, { register } from '../src/parser'
+import Adapter, { register } from '../src/adapter'
 
 const User = register((user) => ({
   id: user.id,
@@ -15,4 +15,4 @@ const Comment = register((comment, user) => ({
 }), 'comment')
 
 
-console.log(Parser('user', data))
+console.log(Adapter('user', data))

@@ -1,5 +1,5 @@
 {
-  "name": "data-parser",
+  "name": "data-adapter",
   "version": "1.0.0",
   "description": "",
   "main": "lib/parser.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexandre-garrec/data-parser.git"
+    "url": "git+https://github.com/alexandre-garrec/data-adapter.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alexandre-garrec/data-parser/issues"
+    "url": "https://github.com/alexandre-garrec/data-adapter/issues"
   },
-  "homepage": "https://github.com/alexandre-garrec/data-parser#readme",
+  "homepage": "https://github.com/alexandre-garrec/data-adapter#readme",
   "dependencies": {
     "invariant": "^2.2.1"
   }
