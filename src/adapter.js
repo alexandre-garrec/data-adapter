@@ -14,7 +14,7 @@ export const register = (func, name) => {
 }
 
 // Data parser
-const parseData = (type, data , memo = {}, parent = false) => {
+const adapter = (type, data , memo = {}, parent = false) => {
   if (model[type]) {
     
     let _contain = false
@@ -32,11 +32,11 @@ const parseData = (type, data , memo = {}, parent = false) => {
 
     if (_contain) {
       const [key, name] = _contain.split(':')
-      data.forEach(i => parseData(name, i[key] , memo, i))
+      data.forEach(i => adapter(name, i[key] , memo, i))
     }
     else return memo
   }
   return memo
 }
 
-export default parseData
+export default adapter
