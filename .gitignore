@@ -1,6 +1,4 @@
 dist/
-prod/
-coverage/
 node_modules/
 .idea/
 .tmp/
