@@ -1,7 +1,7 @@
 import invariant from 'invariant'
 
 /**
- * @todo: stroke option
+ * @todo: stroke option / pluralize function
  */
 
 // List
@@ -13,6 +13,17 @@ export const register = (func, name) => {
   model[name] = func
   return register
 }
+
+// Clear model list
+export const clear = () => {
+  model = {}
+}
+
+// Delete model list
+export const delete = (name) => {
+  delete model[name]
+}
+
 
 // Data parser 
 const adapter = (data, type, memo = {}, parent = false) => {
