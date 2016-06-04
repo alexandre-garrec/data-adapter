@@ -40,6 +40,6 @@ const adapter = (data, type, memo = {}, parent = false) => {
   return memo
 }
 
-const pluralize = (string) => `${string}s`
+const pluralize = (string) => string
 
 export default adapter
