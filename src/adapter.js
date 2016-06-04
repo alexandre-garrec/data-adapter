@@ -9,7 +9,7 @@ let model = {}
 
 // Register model
 export const register = (func, name) => {
-  invariant(!model[name], `model ${name} is allready existe`);
+  invariant(!model[name], `Model ${name} is already existe`);
   model[name] = func
   return register
 }
@@ -27,8 +27,8 @@ const adapter = (data, type, memo = {}, parent = false) => {
       return temp
     })
     
-    memo[`${type}s`] = Array.isArray( memo[type])
-      ? memo[`${type}s`] = memo[type].concat(items)
+    memo[pluralize(type)] = Array.isArray( memo[type])
+      ? memo[pluralize(type)] = memo[type].concat(items)
       : items
 
     if (_contain) {
@@ -39,5 +39,7 @@ const adapter = (data, type, memo = {}, parent = false) => {
   }
   return memo
 }
+
+const pluralize = (string) => `${string}s`
 
 export default adapter

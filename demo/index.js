@@ -14,5 +14,8 @@ register((comment, user) => ({
   text: comment.content
 }), 'comment')
 
+const test = 'test'
+
+console.log(test.name)
 
 console.log(Adapter(data, 'user'))
