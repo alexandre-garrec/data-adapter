@@ -14,8 +14,13 @@ register((comment, user) => ({
   text: comment.content
 }), 'comment')
 
-const test = 'test'
-
-console.log(test.name)
-
 console.log(Adapter(data, 'user'))
+
+/**
+ * { user: [ { id: 1, username: 'toto' }, { id: 2, username: 'tata' } ],
+ *  comment: 
+ *   [ { id: 31, userId: 1, text: 'lorem ipsum elms' },
+ *     { id: 39, userId: 1, text: 'dare ipsum remu' },
+ *     { id: 34, userId: 2, text: 'lorem ipsum elms' },
+ *     { id: 32, userId: 2, text: 'dare ipsum remu' } ] }
+ */
