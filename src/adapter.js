@@ -9,7 +9,7 @@ let model = {}
 
 // Register model
 export const register = (func, name) => {
-  invariant(!model[name], `Model ${name} is already existe`);
+  invariant(!model[name], `Model "${name}" is already existe`);
   model[name] = func
   return register
 }
