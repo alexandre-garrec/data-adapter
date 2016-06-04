@@ -20,7 +20,7 @@ export const clear = () => {
 }
 
 // Delete model list
-export const delete = (name) => {
+export const deleteModel = (name) => {
   delete model[name]
 }
 
