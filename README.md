@@ -21,9 +21,10 @@ API
 			username: user.name,
 		}), 'user')
 		
-		Adapter([{ id: 1, name: 'toto']}, 'user')
+		Adapter([{ id: 1, name: 'toto'}], 'user')
 		
-		// retun 
+retun 
+
 		{
 			user : [
 				{
