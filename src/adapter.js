@@ -36,7 +36,6 @@ const adapter = (data = [], model, memo = {}, parent = false) => {
         
         previous[temp.id] = Object.keys(temp).reduce((p, key) => {
           const value = temp[key]
-          
           if(value instanceof ArrayOf) {
             adapter(value.getData(), value.getType(), memo, current)
             p[key] = value.data.map(d => d.id)
