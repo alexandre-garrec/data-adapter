@@ -31,26 +31,33 @@ export class ArrayOf {
 
 const adapter = (data = [], model, memo = {}, parent = false) => {
   if (model.getType()) {
-    const items = data.map((item) => {
-     
-      let temp = model.getConverter()(item, parent)
-      Object.keys(temp).forEach(key => {
-        const obj = temp[key]
-        if(obj instanceof ArrayOf) {
-          adapter(obj.getData(), obj.getType(), memo, item)
-          temp[key] = obj.data.map(d => d.id)
-        }
-      })
+      const items = data.reduce((previous, current) => {
+        let temp = model.getConverter()(current, parent)
+        
+        previous[temp.id] = Object.keys(temp).reduce((p, key) => {
+          const value = temp[key]
+          
+          if(value instanceof ArrayOf) {
+            adapter(value.getData(), value.getType(), memo, current)
+            p[key] = value.data.map(d => d.id)
+          }
+          else p[key] = value
+          
+          return p
+        }, {})
+   
+        return previous
+        
+      }, {})
       
-      return temp
-      
-    })
-    
     const _type = model.getType()
     
-    memo[_type] = Array.isArray(memo[_type])
-      ? memo[_type] = memo[_type].concat(items)
-      : items
+    if(typeof memo[_type] === 'object') {
+      Object.assign( memo[_type],  items)
+    }
+    else {
+       memo[_type] = items
+    }
   }
   return memo
 }

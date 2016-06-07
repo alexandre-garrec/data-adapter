@@ -14,10 +14,10 @@ describe('adapter test', function () {
     const state = Adapter(data, User)
     
     expect(state).to.eql({ 
-      users: [ 
-        { id: 1, username: 'toto' },
-        { id: 2, username: 'tata' } 
-      ]
+      users: {
+        1: { id: 1, username: 'toto' },
+        2: { id: 2, username: 'tata' } 
+      }
     })
     
   })
@@ -40,16 +40,16 @@ describe('adapter test', function () {
     const state = Adapter(data, User)
 
     expect(state).to.eql({ 
-      users: [ 
-        { id: 1, username: 'toto', comments : [31, 39] },
-        { id: 2, username: 'tata', comments : [34, 32] } 
-      ],
-      comments: [
-        { id: 31, userId: 1, text: 'lorem ipsum elms' },
-        { id: 39, userId: 1, text: 'dare ipsum remu' },
-        { id: 34, userId: 2, text: 'lorem ipsum elms' },
-        { id: 32, userId: 2, text: 'dare ipsum remu' }
-      ]
+      users: {
+        1: { id: 1, username: 'toto', comments : [31, 39] },
+        2: { id: 2, username: 'tata', comments : [34, 32] } 
+      },
+      comments: {
+        31: { id: 31, userId: 1, text: 'lorem ipsum elms' },
+        39: { id: 39, userId: 1, text: 'dare ipsum remu' },
+        34: { id: 34, userId: 2, text: 'lorem ipsum elms' },
+        32: { id: 32, userId: 2, text: 'dare ipsum remu' }
+      }
     })
     
   })
