@@ -41,14 +41,38 @@ describe('adapter test', function () {
 
     expect(state).to.eql({ 
       users: {
-        1: { id: 1, username: 'toto', comments : [31, 39] },
-        2: { id: 2, username: 'tata', comments : [34, 32] } 
+        1: {
+          id: 1,
+          username: 'toto',
+          comments : [31, 39] 
+        },
+        2: {
+          id: 2,
+          username: 'tata',
+          comments : [34, 32] 
+        } 
       },
       comments: {
-        31: { id: 31, userId: 1, text: 'lorem ipsum elms' },
-        39: { id: 39, userId: 1, text: 'dare ipsum remu' },
-        34: { id: 34, userId: 2, text: 'lorem ipsum elms' },
-        32: { id: 32, userId: 2, text: 'dare ipsum remu' }
+        31: { 
+          id: 31,
+          userId: 1,
+          text: 'lorem ipsum elms' 
+        },
+        39: { 
+          id: 39,
+          userId: 1,
+          text: 'dare ipsum remu' 
+        },
+        34: { 
+          id: 34,
+          userId: 2,
+          text: 'lorem ipsum elms' 
+        },
+        32: { 
+          id: 32,
+          userId: 2,
+          text: 'dare ipsum remu' 
+        }
       }
     })
     
