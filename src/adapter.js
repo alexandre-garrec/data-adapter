@@ -44,21 +44,16 @@ const adapter = (data = [], model, memo = {}, parent = false) => {
           
           return p
         }, {})
-   
         return previous
-        
       }, {})
       
     const _type = model.getType()
-    
-    if(typeof memo[_type] === 'object') {
-      Object.assign( memo[_type],  items)
-    }
-    else {
-       memo[_type] = items
-    }
+    if(isObj(memo[_type])) Object.assign( memo[_type],  items)
+    else memo[_type] = items
   }
   return memo
 }
+
+const isObj = obj => typeof obj === 'object'
 
 export default adapter
