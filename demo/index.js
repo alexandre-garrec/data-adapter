@@ -1,20 +1,20 @@
 import data from './data'
-import Adapter, { register } from '../src/adapter'
+import Adapter, { ArrayOf, Model } from '../src/adapter'
 
-register((user) => ({
+const User = new Model('users' , (user) => ({
   id: user.id,
   username: user.name,
-  _contain: 'comments:comment'
-}), 'user')
+  comments : new ArrayOf(Comment, user.comments)
+}))
 
 
-register((comment, user) => ({
+const Comment = new Model('comments', (comment, user) => ({
   id: comment.id,
   userId: user.id,
   text: comment.content
-}), 'comment')
+}))
 
-console.log(Adapter(data, 'user'))
+console.log(Adapter(data, User))
 
 /**
  * { user: [ { id: 1, username: 'toto' }, { id: 2, username: 'tata' } ],

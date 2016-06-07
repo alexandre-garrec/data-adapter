@@ -1,21 +1,20 @@
 import data from '../demo/data'
-import Adapter, {register} from '../src/adapter'
+import Adapter, { Model, ArrayOf } from '../src/adapter'
 import { expect } from 'chai'
 
 describe('adapter test', function () {
   
   it('should return list of users', function () {
     
-    register((user) => ({
+    const User = new Model('users' , (user) => ({
       id: user.id,
       username: user.name,
-      _contain: 'comments:comment'
-    }), 'user')
+    }))
     
-    const state = Adapter(data, 'user')
+    const state = Adapter(data, User)
     
     expect(state).to.eql({ 
-      user: [ 
+      users: [ 
         { id: 1, username: 'toto' },
         { id: 2, username: 'tata' } 
       ]
@@ -25,20 +24,27 @@ describe('adapter test', function () {
   
   it('should return list of users and comments', function () {
     
-    register((comment, user) => ({
+    const User = new Model('users' , (user) => ({
+      id: user.id,
+      username: user.name,
+      comments : new ArrayOf(Comment, user.comments)
+    }))
+
+
+    const Comment = new Model('comments', (comment, user) => ({
       id: comment.id,
       userId: user.id,
       text: comment.content
-    }), 'comment')
+    }))
 
-    const state = Adapter(data, 'user')
+    const state = Adapter(data, User)
 
     expect(state).to.eql({ 
-      user: [ 
-        { id: 1, username: 'toto' },
-        { id: 2, username: 'tata' } 
+      users: [ 
+        { id: 1, username: 'toto', comments : [31, 39] },
+        { id: 2, username: 'tata', comments : [34, 32] } 
       ],
-      comment: [
+      comments: [
         { id: 31, userId: 1, text: 'lorem ipsum elms' },
         { id: 39, userId: 1, text: 'dare ipsum remu' },
         { id: 34, userId: 2, text: 'lorem ipsum elms' },

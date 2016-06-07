@@ -1,56 +1,58 @@
 import invariant from 'invariant'
 
-/**
- * @todo: stroke option / pluralize function
- */
-
-// List
-let model = {}
-
-// Register model
-export const register = (func, name) => {
-  invariant(!model[name], `Model "${name}" is already existe`);
-  model[name] = func
-  return register
+export class Model {
+  constructor(type, converter) {
+    this.type = type
+    this.converter = converter
+  }
+  getType () {
+    return this.type
+  }
+  
+  getConverter () {
+    return this.converter
+  }
 }
 
-// Clear model list
-export const clear = () => {
-  model = {}
+export class ArrayOf {
+  constructor(type, data) {
+    this.type = type
+    this.data = data
+  }
+  
+  getType () {
+    return this.type
+  }
+  
+  getData () {
+    return this.data
+  }
 }
 
-// Delete model list
-export const deleteModel = (name) => {
-  delete model[name]
-}
-
-
-// Data parser 
-const adapter = (data, type, memo = {}, parent = false) => {
-  if (model[type]) {
-    
-    let _contain = false
-    
+const adapter = (data = [], model, memo = {}, parent = false) => {
+  if (model.getType()) {
     const items = data.map((item) => {
-      const temp = model[type](item, parent)
-      if (temp._contain) _contain = temp._contain
-      delete temp._contain
+     
+      let temp = model.getConverter()(item, parent)
+      Object.keys(temp).forEach(key => {
+        const obj = temp[key]
+        if(obj instanceof ArrayOf) {
+          adapter(obj.getData(), obj.getType(), memo, item)
+          temp[key] = obj.data.map(d => d.id)
+        }
+      })
+      
       return temp
+      
     })
     
-    memo[pluralize(type)] = Array.isArray( memo[type])
-      ? memo[pluralize(type)] = memo[type].concat(items)
+    const _type = model.getType()
+    
+    memo[_type] = Array.isArray(memo[_type])
+      ? memo[_type] = memo[_type].concat(items)
       : items
-
-    if (_contain) {
-      const [key, name] = _contain.split(':')
-      data.forEach(i => adapter(i[key], name, memo, i))
-    }
-    else return memo
   }
   return memo
 }
-
-const pluralize = (string) => string
 
 export default adapter
