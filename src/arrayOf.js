@@ -4,6 +4,7 @@
  * data: array
  */
 class ArrayOf {
+  
   constructor(type, data) {
     this.type = type
     this.data = data

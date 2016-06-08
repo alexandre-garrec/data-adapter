@@ -4,10 +4,12 @@
  * data: function
  */
 class Model {
+  
   constructor(type, converter) {
     this.type = type
     this.converter = converter
   }
+  
   getType () {
     return this.type
   }
