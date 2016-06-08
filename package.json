@@ -1,8 +1,8 @@
 {
   "name": "data-adapter",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "lib/parser.js",
+  "main": "dist/adapter.js",
   "scripts": {
     "start": "$(npm bin)/babel-node demo/index.js --presets es2015 stage-0",
     "build": "$(npm bin)/babel src --out-dir dist --presets es2015",
