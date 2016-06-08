@@ -6,3 +6,11 @@ export const mapObject = (obj, funct) => (
     return previous
   }, {})
 )
+
+export const associativeTable = (data, funct) => (
+  data.reduce((previous, current, index) => {
+    const { key, data } = funct(current, index)
+    previous[key] = data
+    return previous
+  }, {})
+)
