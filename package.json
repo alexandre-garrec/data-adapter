@@ -9,7 +9,9 @@
     "test": "$(npm bin)/mocha --compilers js:babel-register",
     "lint": "$(npm bin)/eslint src --ext .js",
     "prepush": "npm test",
-    "precommit": "npm run lint && npm run build"
+    "precommit": "npm run lint && npm run build",
+    "clean": "rimraf dist",
+    "prepublish": "npm run clean && npm run build --kill"
   },
   "devDependencies": {
     "babel-cli": "^6.0.0",
@@ -19,14 +21,21 @@
     "babel-register": "^6.9.0",
     "eslint": "^2.11.1",
     "husky": "^0.11.4",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "rimraf": "^2.5.2"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexandre-garrec/data-adapter.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "data",
+    "redux",
+    "adapter",
+    "data-adapter"
+  ],
+  "author": "alexandre-garrec <garrec.alexandre@gmail.com> (https://github.com/alexandre-garrec)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alexandre-garrec/data-adapter/issues"
   },

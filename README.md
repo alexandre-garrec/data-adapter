@@ -26,6 +26,7 @@ API
 
  1. pluralize name
  2. adapter function ( current, parrent )
+ 3. id (optional)
 
 
 
