@@ -20,13 +20,19 @@ API
 
  1. Model
  2. array of data
+ 
+**InstanceOf**
+*Parameters:*
 
+ 1. Model
+ 2. object
+ 
+ 
 **Model**
 *Parameters:*
 
  1. pluralize name
  2. adapter function ( current, parrent )
- 3. id (optional)
 
 
 
@@ -50,6 +56,12 @@ Demo
 	  userId: user.id,
 	  text: comment.content
 	}))
+	
+  const Post = new Model('posts', (post) => ({
+    id: post.id,
+    user: new InstanceOf(User, post.author),
+    text: post.content
+  }))
 	
 	Adapter(data, User)
 

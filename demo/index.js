@@ -1,5 +1,5 @@
-import data from './data'
-import Adapter, { ArrayOf, Model } from '../src/adapter'
+import data, { post } from './data'
+import Adapter, { ArrayOf, InstanceOf, Model } from '../src/adapter'
 
 const User = new Model('users' , (user) => ({
   id: user.id,
@@ -14,4 +14,12 @@ const Comment = new Model('comments', (comment, user) => ({
   text: comment.content
 }))
 
+const Post = new Model('posts', (post) => ({
+  id: post.id,
+  user: new InstanceOf(User, post.author),
+  text: post.content
+}))
+
 console.log(Adapter(data, User))
+console.log('-----------------------------------')
+console.log(Adapter(post, Post))

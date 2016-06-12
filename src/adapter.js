@@ -1,4 +1,4 @@
-import ArrayOf from './arrayOf'
+import { ArrayOf , InstanceOf } from './class'
 import Model from './model'
 import { isObj, mapObject, associativeTable } from './utils'
 
@@ -11,9 +11,9 @@ const adapter = (data = [], model, memo = {}, parent = false) => {
     return {
       key: element.id,
       data: mapObject(element, (value) => {
-        if(value instanceof ArrayOf) {
+        if(value instanceof ArrayOf || value instanceof InstanceOf) {
           adapter(value.getData(), value.getType(), memo, current)
-          value = value.data.map(d => d[value.getType().getId()])
+          value = value.getConvertData()
         }
         return value
       })
@@ -29,5 +29,6 @@ const adapter = (data = [], model, memo = {}, parent = false) => {
 export {
   adapter as default,
   ArrayOf,
+  InstanceOf,
   Model
 }
