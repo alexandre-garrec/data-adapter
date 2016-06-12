@@ -57,11 +57,11 @@ Demo
 	  text: comment.content
 	}))
 	
-  const Post = new Model('posts', (post) => ({
-    id: post.id,
-    user: new InstanceOf(User, post.author),
-    text: post.content
-  }))
+	const Post = new Model('posts', (post) => ({
+		id: post.id,
+		user: new InstanceOf(User, post.author),
+		text: post.content
+	}))
 	
 	Adapter(data, User)
 
