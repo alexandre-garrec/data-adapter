@@ -1,6 +1,6 @@
 {
   "name": "data-adapter-js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "dist/adapter.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "eslint": "^2.11.1",
     "husky": "^0.11.4",
     "mocha": "^2.5.3",
+    "chai": "^3.5.0",
     "rimraf": "^2.5.2"
   },
   "repository": {
@@ -29,8 +30,7 @@
     "url": "git+https://github.com/alexandre-garrec/data-adapter.git"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "keywords": [
     "data",
@@ -45,7 +45,6 @@
   },
   "homepage": "https://github.com/alexandre-garrec/data-adapter#readme",
   "dependencies": {
-    "chai": "^3.5.0",
     "invariant": "^2.2.1"
   }
 }
