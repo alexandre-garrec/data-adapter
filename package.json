@@ -1,6 +1,6 @@
 {
   "name": "data-adapter-js",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/adapter.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "prepush": "npm test",
     "precommit": "npm run lint && npm run build",
     "clean": "rimraf dist",
-    "preinstall": "npm run clean && npm run build --kill"
+    "prepublish": "npm run clean && npm run build --kill"
   },
   "devDependencies": {
     "babel-cli": "^6.0.0",
@@ -28,6 +28,10 @@
     "type": "git",
     "url": "git+https://github.com/alexandre-garrec/data-adapter.git"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "keywords": [
     "data",
     "redux",
