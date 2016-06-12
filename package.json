@@ -1,5 +1,5 @@
 {
-  "name": "data-adapter",
+  "name": "data-adapter-js",
   "version": "0.0.1",
   "description": "",
   "main": "dist/adapter.js",
@@ -11,7 +11,7 @@
     "prepush": "npm test",
     "precommit": "npm run lint && npm run build",
     "clean": "rimraf dist",
-    "prepublish": "npm run clean && npm run build --kill"
+    "preinstall": "npm run clean && npm run build --kill"
   },
   "devDependencies": {
     "babel-cli": "^6.0.0",
