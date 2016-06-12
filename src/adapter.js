@@ -13,7 +13,7 @@ const adapter = (data = [], model, memo = {}, parent = false) => {
       data: mapObject(element, (value) => {
         if(value instanceof ArrayOf) {
           adapter(value.getData(), value.getType(), memo, current)
-          value = value.data.map(d => d.id)
+          value = value.data.map(d => d[value.getType().getId()])
         }
         return value
       })

@@ -8,7 +8,7 @@ describe('adapter test', function () {
     
     const User = new Model('users' , (user) => ({
       id: user.id,
-      username: user.name,
+      username: user.name
     }))
     
     const state = Adapter(data, User)

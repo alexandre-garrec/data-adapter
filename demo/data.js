@@ -12,7 +12,7 @@ const data = [
         id: 39,
         postId: 1,
         content : 'dare ipsum remu'
-      },
+      }
     ]
   },
   {
@@ -28,7 +28,7 @@ const data = [
         id: 32,
         postId: 15,
         content : 'dare ipsum remu'
-      },
+      }
     ]
   }
 ]

@@ -17,6 +17,7 @@ class ArrayOf {
   getData () {
     return this.data
   }
+  
 }
 
 export default ArrayOf

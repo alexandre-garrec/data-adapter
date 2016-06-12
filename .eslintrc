@@ -19,5 +19,10 @@
     "no-cond-assign": 2
   },
   
+  "globals": {
+    "it": true,
+    "describe": true
+  },
+  
   "parser": "babel-eslint"
 }
