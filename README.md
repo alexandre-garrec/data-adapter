@@ -2,6 +2,7 @@
 
 
 [![travis](https://travis-ci.org/alexandre-garrec/data-adapter.svg)](https://travis-ci.org/alexandre-garrec/data-adapter)
+[![npm](https://img.shields.io/npm/v/data-adapter-js.svg?style=flat-square)](https://www.npmjs.com/package/data-adapter-js)
 
 ## Install
 
