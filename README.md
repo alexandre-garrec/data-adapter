@@ -1,6 +1,5 @@
 # data-adapter-js 
 [![travis](https://travis-ci.org/alexandre-garrec/data-adapter.svg)](https://travis-ci.org/alexandre-garrec/data-adapter) [![npm](https://img.shields.io/npm/v/data-adapter-js.svg?style=flat-square)](https://www.npmjs.com/package/data-adapter-js)
-
 You can use it to adapting data in according to a schema for [Flux](https://facebook.github.io/flux) and [Redux](http://rackt.github.io/redux) apps.  
 
 ## Install
