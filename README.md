@@ -16,11 +16,12 @@ import Adapter, { ArrayOf, InstanceOf, Model } from "data-adapter-js"
 ```
 
 ## Run
-
-    $ npm start
-    $ npm test
-    $ npm run build
-    $ npm run lint
+```console
+$ npm start
+$ npm test
+$ npm run build
+$ npm run lint
+```
 
 
 ## API
@@ -50,6 +51,7 @@ import Adapter, { ArrayOf, InstanceOf, Model } from "data-adapter-js"
 
 
 ```javascript
+import Adapter, { ArrayOf, InstanceOf, Model } from "data-adapter-js"
 import data from './data'
 
 const User = new Model('users' , (user) => ({
