@@ -3,9 +3,10 @@ import Adapter, { ArrayOf, InstanceOf, Model } from '../src/adapter'
 
 const User = new Model('users' , (user) => ({
   id: user.id,
+  uniq: `uniq_${user.id}`,
   username: user.name,
   comments : new ArrayOf(Comment, user.comments)
-}))
+}), 'uniq' )
 
 
 const Comment = new Model('comments', (comment, user) => ({

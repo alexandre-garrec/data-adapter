@@ -1,8 +1,8 @@
 /**
  * Params
- * type: string
- * data: function
- * id: string (optional)
+ * type : string
+ * data : function
+ * id   : string (optional)
  */
 class Model {
   

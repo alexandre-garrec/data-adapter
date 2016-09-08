@@ -9,7 +9,7 @@ const adapter = (data = [], model, memo = {}, parent = false) => {
   const list = associativeTable(data, (current) => {
     const element = model.getConverter()(current, parent)
     return {
-      key: element.id,
+      key: element[model.getId()],
       data: mapObject(element, (value) => {
         if(value instanceof ArrayOf || value instanceof InstanceOf) {
           adapter(value.getData(), value.getType(), memo, current)

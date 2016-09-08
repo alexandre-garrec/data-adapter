@@ -21,6 +21,25 @@ describe('adapter test', function () {
     })
     
   })
+
+  it('should return list of users with custom id key', function () {
+    
+    const User = new Model('users' , (user) => ({
+      uniq: `uniq_${user.id}`,
+      username: user.name
+    }), 'uniq')
+    
+    const state = Adapter(data, User)
+    
+    expect(state).to.eql({ 
+      users: {
+        uniq_1: { uniq: 'uniq_1', username: 'toto' },
+        uniq_2: { uniq: 'uniq_2', username: 'tata' } 
+      }
+    })
+    
+  })
+  
   
   it('should return list of users and comments', function () {
     
