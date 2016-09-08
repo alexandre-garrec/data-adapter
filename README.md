@@ -44,6 +44,7 @@ $ npm run lint
 
  1. pluralize name
  2. adapter function ( current, parrent )
+ 3. name of uniq id key
 
 
 
